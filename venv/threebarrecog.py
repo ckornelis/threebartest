@@ -5,7 +5,7 @@ from urllib.request import urlretrieve
 import stoplosscalc as sl
 
 
-url = aAPI.callintradayAPI('nke', 1, 0, 1)
+url = aAPI.callintradayAPI('soxl', 1, 0, 1)
 urlretrieve(url, 'testfile.csv')
 
 data = pd.read_csv("testfile.csv")
@@ -66,8 +66,9 @@ for index, row in data.iterrows():
             profit_list.append(profit_share)
             in_position = False
         elif row['low']< stop:
-            profit_share = row['low']-buy
-            print('Sell at '+ str(row['low'])+ '. Profit per share is ' + str(profit_share))
+            # profit_share = row['low']-buy
+            profit_share = stop - buy
+            print('Sell at '+ str(stop)+ '. Profit per share is ' + str(profit_share))
             profit_list.append(profit_share)
             in_position = False
         bar2high = bar1high

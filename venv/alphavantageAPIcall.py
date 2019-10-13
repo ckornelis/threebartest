@@ -44,3 +44,11 @@ def callintradayAPI (isym: str, iinterval: int, ioutput: int, idatatype: int) ->
 
     APItocall = baseapiurl + 'query?function=' + qfunction + '&symbol=' + qsymbol + '&interval=' + qinterval + '&apikey=' + qAPIkey + '&outputsize=' + qoutputsize + '&datatype=' + qdatatype
     return APItocall
+
+
+def call_realtime_crypto(ifrom: str, ito: str):
+    qfunction = 'CURRENCY_EXCHANGE_RATE'
+    qfrom = ifrom
+    qto = ito
+    APItocall = baseapiurl + 'query?function=' + qfunction + '&from_currency=' + qfrom + '&to_currency=' + qto + '&apikey=' + qAPIkey
+    return APItocall
