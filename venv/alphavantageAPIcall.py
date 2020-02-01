@@ -52,3 +52,16 @@ def call_realtime_crypto(ifrom: str, ito: str):
     qto = ito
     APItocall = baseapiurl + 'query?function=' + qfunction + '&from_currency=' + qfrom + '&to_currency=' + qto + '&apikey=' + qAPIkey
     return APItocall
+
+
+def call_MACD(isym: str, iint: str, idatatype: str, isertype='close', ifast=12, islow=26, isignal=9):
+    qfunction = 'MACD'
+    qsymbol = isym
+    qinterval = iint  # 1min, 5min, 15min, 30min, 60min, daily, weekly, monthly
+    qseriestype = isertype  # close, open, high, low'
+    qfastperiod = str(ifast)
+    qslowperiod = str(islow)
+    qsignalperiod = str(isignal)
+    qdatatype = idatatype
+    APItocall = baseapiurl + 'query?function=' + qfunction + '&symbol=' + qsymbol + '&interval=' + qinterval + '&series_type=' + qseriestype + '&apikey=' + qAPIkey + '&fastperiod=' + qfastperiod + '&slowperiod=' + qslowperiod + '&signalperiod=' + qsignalperiod + '&datatype=' + qdatatype
+    return APItocall
